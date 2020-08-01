@@ -40,6 +40,19 @@ async def on_message(message):
 
         else:
             await message.channel.send('Get in a voice channel, dumbass.')
+    if message.content.lower() == ".aaa2":
+        # grab the user who sent the command
+        voice_channel=message.author.voice.channel
+        # only play music if user is in a voice channel
+        if voice_channel != None:
+            vc = await voice_channel.connect()
+            vc.play(discord.FFmpegPCMAudio('aaa2.mp3'), after=lambda e: print('done', e))
+            while vc.is_playing():
+                await asyncio.sleep(1)
+            await vc.disconnect()
+
+        else:
+            await message.channel.send('Get in a voice channel, dumbass.')
 
 
 client.run(TOKEN)
