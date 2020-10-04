@@ -12,7 +12,7 @@ client = discord.Client()
 @client.event
 async def on_ready():
     print(f'{client.user} has connected to Discord!')
-    await client.change_presence(activity=discord.Game(name='Team Fortress 3'))
+    await client.change_presence(activity=discord.Activity(type=discord.ActivityType.listening, name="musicals at 3am like a loser"))
 
 @client.event
 async def on_message(message):
@@ -25,7 +25,7 @@ async def on_message(message):
         await message.channel.send(resp)
     if message.content.lower() == ".sw -t":
         resp = get("http://swquotesapi.digitaljedi.dk/api/SWQuote/RandomStarWarsQuote").json()["starWarsQuote"]
-        await message.channel.send(resp)
+        await message.channel.send(resp, tts=True)
     if "can i take your order" in message.content.lower():
         await message.channel.send("I'll have two number 9's, a number 9 large, a number 6 with extra dip, a number 7, two number 45's, one with cheese, and a large soda.", tts=True)
     if message.content.lower() == ".aaa":
