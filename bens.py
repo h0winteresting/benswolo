@@ -23,10 +23,11 @@ async def on_message(message):
     if message.content.lower() == ".sw":
         resp = get("http://swquotesapi.digitaljedi.dk/api/SWQuote/RandomStarWarsQuote").json()["starWarsQuote"]
         await message.channel.send(resp)
+    if message.content.lower() == ".sw -t":
+        resp = get("http://swquotesapi.digitaljedi.dk/api/SWQuote/RandomStarWarsQuote").json()["starWarsQuote"]
+        await message.channel.send(resp)
     if "can i take your order" in message.content.lower():
         await message.channel.send("I'll have two number 9's, a number 9 large, a number 6 with extra dip, a number 7, two number 45's, one with cheese, and a large soda.", tts=True)
-    if "99792492710330368" in message.content.lower():
-        await message.channel.send("🚨 <@99792492710330368> 🚨\nSomeone used your id!")
     if message.content.lower() == ".aaa":
         # grab the user who sent the command
         voice_channel=message.author.voice.channel
