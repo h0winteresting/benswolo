@@ -21,10 +21,10 @@ async def on_message(message):
     if "soulja boy" in message.content.lower():
         await message.channel.send(s, tts=True)
     if message.content.lower() == ".sw":
-        resp = get("http://swquotesapi.digitaljedi.dk/api/SWQuote/RandomStarWarsQuote").json()["starWarsQuote"]
+        resp = get("http://swquotesapi.digitaljedi.dk/api/SWQuote/RandomStarWarsQuote", verify=False).json()["starWarsQuote"]
         await message.channel.send(resp)
     if message.content.lower() == ".sw -t":
-        resp = get("http://swquotesapi.digitaljedi.dk/api/SWQuote/RandomStarWarsQuote").json()["starWarsQuote"]
+        resp = get("http://swquotesapi.digitaljedi.dk/api/SWQuote/RandomStarWarsQuote", verify=False).json()["starWarsQuote"]
         await message.channel.send(resp, tts=True)
     if "can i take your order" in message.content.lower():
         await message.channel.send("I'll have two number 9's, a number 9 large, a number 6 with extra dip, a number 7, two number 45's, one with cheese, and a large soda.", tts=True)
